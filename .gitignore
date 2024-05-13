@@ -1,4 +1,4 @@
 ./constants.ts
-./node_modules
+./node_modules/*
 ./yarn.lock
 
