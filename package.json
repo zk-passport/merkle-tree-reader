@@ -1,18 +1,25 @@
 {
+  "name": "merkle-tree-reader",
   "scripts": {
-    "start": "ts-node clientrequest.ts"
+    "start": "pm2 start app.js --name merkle-tree-reader  --log-date-format 'YYYY-MM-DD HH:mm Z'",
+    "stop": "pm2 stop merkle-tree-reader",
+    "restart": "pm2 restart merkle-tree-reader",
+    "logs": "pm2 logs merkle-tree-reader"
   },
-  "name": "pop-listener",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "license": "MIT",
   "dependencies": {
     "@types/node": "^20.12.11",
     "@zk-kit/imt": "^2.0.0-beta.4",
     "@zk-kit/utils": "^1.0.0-beta.4",
+    "add": "^2.0.6",
     "ethers": "5.7.2",
+    "express": "^4.19.2",
     "fs": "^0.0.1-security",
+    "path": "^0.12.7",
     "poseidon-lite": "^0.2.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "yarn": "^1.22.22"
   }
 }

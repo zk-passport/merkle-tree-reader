@@ -4,3 +4,4 @@ yarn.lock
 events.json
 
 constants.ts
+serialized_tree.json
