@@ -1,0 +1,13 @@
+export const contractAddress = '';
+export const startblock = 0;
+export const rpcApi = '';
+export const fromStart = true;
+
+export interface EventsData {
+    [key: string]: {
+        index: number;
+        commitment: BigInt;
+        merkle_root: BigInt;
+        blockNumber: number;
+    };
+}
