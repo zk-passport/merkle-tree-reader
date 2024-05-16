@@ -25,9 +25,9 @@ export async function getPastEvents(startBlock = startblock) {
         Object.assign(eventsByIndex, existingEvents);
     }
     events.forEach(event => {
-        const index = event.args ? event.args[0].toString() : 'undefined';
-        const commitment = event.args ? parseInt(event.args[1].toString()) : 0;
-        const merkleRoot = event.args ? parseInt(event.args[2].toString()) : 0; // Convert to integer
+        const index = event.args ? event.args[0].toBigInt().toString() : 'undefined';
+        const commitment = event.args ? event.args[1].toBigInt() : BigInt(0);
+        const merkleRoot = event.args ? event.args[2].toBigInt() : BigInt(0);
         eventsByIndex[index] = {
             index: parseInt(index),
             commitment: BigInt(commitment),
