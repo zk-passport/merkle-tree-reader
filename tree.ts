@@ -1,5 +1,5 @@
 import { poseidon2 } from 'poseidon-lite';
-import { LeanIMT } from "@zk-kit/imt"
+import { LeanIMT } from "@zk-kit/lean-imt"
 import fs from 'fs';
 import { contractAddress, rpcApi } from './constants';
 import { ethers } from 'ethers';

@@ -1,5 +1,5 @@
 import { createTree, getChainMerkleRoot, serializeTree } from './tree';
-import { LeanIMT } from '@zk-kit/imt';
+import { LeanIMT } from '@zk-kit/lean-imt';
 import { cleanEvents, readEvents } from './manageData';
 import { getLastEventBlockNumber } from './manageData';
 import { getPastEvents } from './getPastEvents';
