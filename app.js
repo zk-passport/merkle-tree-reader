@@ -11,7 +11,7 @@ app.get('/status', (req, res) => {
 
 // Update merkle tree
 app.get('/api/update-merkle-tree', (req, res) => {
-    exec('ts-node ../merkle-tree-reader/clientRequest.ts', (error, stdout, stderr) => {
+    exec('ts-node clientRequest.ts', (error, stdout, stderr) => {
         if (error) {
             console.error(`exec error: ${error}`);
             return res.status(500).send(`Script execution failed: ${error}`);
@@ -39,7 +39,7 @@ app.get('/api/download', (req, res) => {
 
 // Update and download merkle tree
 app.get('/api/download-merkle-tree', (req, res) => {
-    exec('ts-node ../merkle-tree-reader/clientRequest.ts', (error, stdout, stderr) => {
+    exec('ts-node clientRequest.ts', (error, stdout, stderr) => {
         if (error) {
             console.error(`exec error: ${error}`);
             return res.status(500).send(`Script execution failed: ${error}`);
