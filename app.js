@@ -5,6 +5,11 @@ const port = 3000; // You can change the port number if needed
 const path = require('path');
 const fs = require('fs');
 
+app.get('/status', (req, res) => {
+    res.json({ status: 'ok' });
+});
+
+// Update merkle tree
 app.get('/api/update-merkle-tree', (req, res) => {
     exec('ts-node ../merkle-tree-reader/clientRequest.ts', (error, stdout, stderr) => {
         if (error) {
@@ -15,17 +20,14 @@ app.get('/api/update-merkle-tree', (req, res) => {
     });
 });
 
-
+// Download merkle tree
 app.get('/api/download', (req, res) => {
     const filePath = path.join(__dirname, 'serialized_tree.json');
-
-    // Check if the file exists before attempting to download
     fs.access(filePath, fs.constants.F_OK, (err) => {
         if (err) {
             console.error('File does not exist:', err);
             return res.status(404).send('File not found');
         }
-
         res.download(filePath, 'serialized_tree.json', (err) => {
             if (err) {
                 console.error('Error downloading file:', err);
@@ -35,9 +37,8 @@ app.get('/api/download', (req, res) => {
     });
 });
 
-
+// Update and download merkle tree
 app.get('/api/download-merkle-tree', (req, res) => {
-    // First, execute the ts-node script
     exec('ts-node ../merkle-tree-reader/clientRequest.ts', (error, stdout, stderr) => {
         if (error) {
             console.error(`exec error: ${error}`);
@@ -46,16 +47,13 @@ app.get('/api/download-merkle-tree', (req, res) => {
 
         console.log(`Script executed successfully: ${stdout}`);
 
-        // If the script runs successfully, proceed to download the file
         const filePath = path.join(__dirname, 'serialized_tree.json');
 
-        // Check if the file exists before attempting to download
         fs.access(filePath, fs.constants.F_OK, (err) => {
             if (err) {
                 console.error('File does not exist:', err);
                 return res.status(404).send('File not found');
             }
-
             res.download(filePath, 'serialized_tree.json', (err) => {
                 if (err) {
                     console.error('Error downloading file:', err);
