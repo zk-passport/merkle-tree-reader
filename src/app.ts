@@ -22,7 +22,7 @@ app.post('/api/register', async (req, res) => {
 });
 
 app.get('/api/download', (req, res) => {
-    const filePath = path.join(__dirname, 'serialized_tree.json');
+    const filePath = path.join(process.cwd(), 'serialized_tree.json');
     fs.access(filePath, fs.constants.F_OK, (err) => {
         if (err) {
             console.error('File does not exist:', err);
