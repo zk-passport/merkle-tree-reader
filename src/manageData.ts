@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { EventsData } from './constants';
-import { startblock } from './constants'
+import { EventsData } from '../constants';
+import { startblock } from '../constants'
 
 export function readEvents() {
     let eventsData: EventsData = {};

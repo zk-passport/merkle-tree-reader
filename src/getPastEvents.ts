@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 import fs from 'fs';
-import { contractAddress, startblock, rpcApi } from './constants';
-import { EventsData } from './constants';
+import { contractAddress, startblock, rpcApi } from '../constants';
+import { EventsData } from '../constants';
 const provider = new ethers.providers.JsonRpcProvider(rpcApi);
 
 const contractABI = JSON.parse(fs.readFileSync('RegisterABI.json', 'utf8'));

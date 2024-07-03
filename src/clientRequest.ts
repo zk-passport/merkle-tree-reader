@@ -1,9 +1,9 @@
-import { createTree, getChainMerkleRoot, serializeTree } from './tree';
+import { createTree, getChainMerkleRoot, serializeTree } from '../tree';
 import { LeanIMT } from '@zk-kit/lean-imt';
-import { cleanEvents, readEvents } from './manageData';
-import { getLastEventBlockNumber } from './manageData';
-import { getPastEvents } from './getPastEvents';
-import { EventsData } from './constants';
+import { cleanEvents, readEvents } from '../manageData';
+import { getLastEventBlockNumber } from '../manageData';
+import { getPastEvents } from '../getPastEvents';
+import { EventsData } from '../constants';
 
 async function handleClientRequest() {
     const merkleRootFromContract = BigInt(await getChainMerkleRoot());

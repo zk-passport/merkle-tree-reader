@@ -1,7 +1,5 @@
-constants.ts
 node_modules/
 yarn.lock
 events.json
 
-constants.ts
 serialized_tree.json
