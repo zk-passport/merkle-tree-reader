@@ -1,0 +1,20 @@
+   generator client {
+     provider = "prisma-client-js"
+   }
+
+   datasource db {
+     provider = "sqlite"
+     url      = "file:./dev.db"
+   }
+
+   model Nullifier {
+     id        String   @id @default(uuid())
+     nullifier String   @unique
+     createdAt DateTime @default(now())
+   }
+
+   model Tree {
+     id        String   @id @default(uuid())
+     tree      String   // This will store the serialized tree as a JSON string
+     updatedAt DateTime @updatedAt
+   }

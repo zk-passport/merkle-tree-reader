@@ -4,15 +4,21 @@
   "scripts": {
     "start": "tsx src/app.ts",
     "dev": "tsx watch src/app.ts",
-    "logs": "tail -f /path/to/your/logfile.log"
+    "build": "tsc",
+    "migrate": "prisma migrate dev",
+    "studio": "prisma studio",
+    "clean-db": "tsx src/db/cleanDatabase.ts",
+    "retrieve-data": "tsx src/db/retrieveData.ts",
+    "test-download": "tsx src/tests/testDownload.ts"
   },
   "version": "1.0.0",
   "main": "src/app.ts",
   "license": "MIT",
   "dependencies": {
-    "@proofofpassport/sdk": "^1.1.9",
+    "@prisma/client": "^5.16.1",
+    "@proofofpassport/sdk": "^1.2.0",
     "@types/express": "^4.17.21",
-    "@types/node": "^20.12.11",
+    "@types/node": "^20.14.9",
     "@zk-kit/imt": "https://gitpkg.now.sh/0xturboblitz/zk-kit/packages/imt?6d417675",
     "@zk-kit/lean-imt": "^2.0.1",
     "@zk-kit/utils": "^1.0.0-beta.4",
@@ -24,6 +30,7 @@
     "path": "^0.12.7",
     "pm2": "^5.4.1",
     "poseidon-lite": "^0.2.0",
+    "prisma": "^5.16.1",
     "typescript": "^5.5.3",
     "yarn": "^1.22.22"
   },
@@ -31,6 +38,6 @@
     "nodemon": "^2.0.15",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "tsx": "^4.16.0"
+    "tsx": "^4.16.2"
   }
 }
