@@ -3,6 +3,8 @@
   "type": "module",
   "scripts": {
     "start": "tsx src/app.ts",
+    "start:background": "nohup tsx src/app.ts > output.log 2>&1 &",
+    "stop": "kill $(lsof -t -i:3300)",
     "dev": "tsx watch src/app.ts",
     "build": "tsc",
     "migrate": "prisma migrate dev",
