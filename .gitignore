@@ -1,5 +1,6 @@
 node_modules/
 yarn.lock
 events.json
-
+.env
 serialized_tree.json
+prisma/

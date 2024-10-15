@@ -10,7 +10,12 @@
         "forceConsistentCasingInFileNames": true,
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "old/register.ts",
+        "old/tree.ts",
+        "old/getPastEvents.ts",
+        "old/manageData.ts",
+        "old/clientRequest.ts"
     ],
     "exclude": [
         "node_modules"

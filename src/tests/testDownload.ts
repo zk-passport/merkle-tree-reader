@@ -2,17 +2,23 @@ import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 
-const downloadUrl = 'http://localhost:3300/api/download';
-const outputPath = path.join(process.cwd(), 'downloaded_tree.json');
-
-async function testDownload() {
+const testRetrieveMerkleTree = async () => {
     try {
-        const response = await axios.get(downloadUrl);
-        fs.writeFileSync(outputPath, JSON.stringify(response.data, null, 2));
-        console.log('Tree downloaded and saved to:', outputPath);
-    } catch (error) {
-        console.error('Error downloading tree:', error);
-    }
-}
+        const response = await axios.get('http://localhost:3300/api/merkle-tree/download');
+        const treeData = response.data;
+        console.log('Merkle Tree:', treeData);
 
-testDownload();
+        // Optionally, save the tree to a local file
+        const outputPath = path.join(__dirname, 'downloaded_merkle_tree.json');
+        fs.writeFileSync(outputPath, JSON.stringify(treeData, null, 2));
+        console.log(`Merkle tree saved to ${outputPath}`);
+    } catch (error: any) {
+        if (error.response) {
+            console.error(`Error: ${error.response.status} - ${error.response.data}`);
+        } else {
+            console.error(`Error: ${error.message}`);
+        }
+    }
+};
+
+testRetrieveMerkleTree();
