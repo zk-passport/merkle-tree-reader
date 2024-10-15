@@ -1,7 +1,6 @@
-constants.ts
 node_modules/
 yarn.lock
 events.json
-
-constants.ts
+.env
 serialized_tree.json
+prisma/
