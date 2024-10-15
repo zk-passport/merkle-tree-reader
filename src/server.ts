@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { config, Mode } from './config';
 import merkleTreeRoutes from './routes/merkleTreeRoutes';
 import verifierRoutes from './routes/verifierRoutes';
@@ -8,6 +9,13 @@ import merkleTreeService from './services/MerkleTreeServiceSingleton';
 import { logger } from './utils/logger';
 
 const app = express();
+
+// Configure CORS
+app.use(cors({
+    origin: 'http://localhost:3000', // Allow requests from this origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+}));
 
 app.use(express.json());
 
